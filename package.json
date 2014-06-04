@@ -1,0 +1,14 @@
+{
+  "name": "wa-api-js",
+  "version": "0.0.0",
+  "description": "Whatsapp API for JavaScript",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "MRW Neundorf <matt@nax.me>",
+  "license": "MIT"
+}
