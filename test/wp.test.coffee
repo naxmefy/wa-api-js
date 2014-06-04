@@ -24,21 +24,21 @@ SOFTWARE.
 
 path = require 'path'
 src = path.join process.cwd(), 'src'
-Wa = require path.join src, 'wa'
+Wp = require path.join src, 'wp'
 
-describe 'Wa', ->
+describe 'Wp', ->
   describe 'General Test', ->
     it 'should be ok', ->
       true.should.be.ok
 
     it 'should be a class', ->
-      (typeof Wa).should.equal("function")
+      (typeof Wp).should.equal("function")
 
   describe 'Instance Test', ->
-    wa = null
+    wp = null
     beforeEach (done) ->
-      wa = new Wa
+      wp = new Wp
       done()
 
-    it 'should be a instance of Wa', ->
-      (wa instanceof Wa).should.be.ok
+    it 'should be a instance of Wp', ->
+      (wp instanceof Wp).should.be.ok

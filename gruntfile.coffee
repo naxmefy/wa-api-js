@@ -28,8 +28,31 @@ module.exports = (grunt)->
     # PKG
     pkg: grunt.file.readJSON 'package.json'
 
+    # watcher
+    watch:
+      coffee:
+        files: ['test/**/*.coffee', 'src/**/*.coffee']
+        tasks: ['mochaTest']
+
+    # mocha
+    mochaTest:
+      test:
+        options:
+          reporter: 'list'
+          require: [
+            'coffee-script/register',
+            'should'
+          ]
+          ui: 'bdd'
+        src: ['test/**/*.coffee']
+
+
 
   # LOAD NpmTasks
+  grunt.loadNpmTasks 'grunt-mocha-test'
+  grunt.loadNpmTasks 'grunt-contrib-watch'
 
   # Register Tasks
   grunt.registerTask 'default'
+  grunt.registerTask 'test', 'mochaTest'
+  grunt.registerTask 'watchtests', 'watch:coffee'

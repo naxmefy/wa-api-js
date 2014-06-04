@@ -22,23 +22,20 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ###
 
-path = require 'path'
-src = path.join process.cwd(), 'src'
-Wa = require path.join src, 'wa'
+module.exports = class Wa
+  _config      = null
+  _from        = null
+  _number      = null
+  _id          = null
+  _nick        = null
+  _password    = null
+  _contacts    = []
+  _groups      = null
+  _inputs      = null
+  _messages    = null
+  _wp          = null
+  _connected   = null
 
-describe 'Wa', ->
-  describe 'General Test', ->
-    it 'should be ok', ->
-      true.should.be.ok
-
-    it 'should be a class', ->
-      (typeof Wa).should.equal("function")
-
-  describe 'Instance Test', ->
-    wa = null
-    beforeEach (done) ->
-      wa = new Wa
-      done()
-
-    it 'should be a instance of Wa', ->
-      (wa instanceof Wa).should.be.ok
+  constructor: (from = '', config = {})->
+    @_config = config
+    @_from   = from
